@@ -1,7 +1,13 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
 
 app = FastAPI()
 
+class Item(BaseModel):
+    name: str
+    description: str
+    ability: str
+    
 
 @app.get("/")
 async def read_root():
