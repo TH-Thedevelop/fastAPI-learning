@@ -11,9 +11,16 @@ import pokebase as pb
 def get_pokemon(name: str) -> dict:
     """Return a single pokemon's name and primary ability."""
     pokemon = pb.pokemon(name)
+    abilities = [pair.ability.name for pair in pokemon.abilities]
+    poke_type = [type_pair.type.name for type_pair in pokemon.types]
+    stats = {s.stat.name: s.base_stat for s in pokemon.stats}
     return {
+        "id": pokemon.id,
         "name": pokemon.name,
-        "ability": pokemon.abilities[0].ability.name,
+        "abilities": abilities,
+        "poke_type": poke_type,
+        "hp": stats["hp"],
+        "stats": stats,
     }
 
 

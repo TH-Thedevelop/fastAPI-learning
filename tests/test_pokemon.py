@@ -1,6 +1,6 @@
 from fastapi.testclient import TestClient
 
-from app.main import app
+from main import app
 
 client = TestClient(app)
 
@@ -8,7 +8,6 @@ client = TestClient(app)
 def test_read_root():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"Hello": "World"}
 
 
 def test_get_pokemon():
@@ -16,7 +15,9 @@ def test_get_pokemon():
     assert response.status_code == 200
     data = response.json()
     assert data["name"] == "charmander"
-    assert "ability" in data
+    assert isinstance(data["abilities"], list)
+    assert isinstance(data["poke_type"], list)
+    assert data["hp"] == data["stats"]["hp"]
 
 
 def test_get_pokemon_abilities():

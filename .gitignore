@@ -1,3 +1,16 @@
+# Python
 .env/
+.venv/
 __pycache__/
 *.pyc
+.pytest_cache/
+
+# Node / Next.js
+node_modules/
+frontend/.next/
+frontend/out/
+npm-debug.log*
+
+# Editor / OS
+.vscode/
+.DS_Store
