@@ -16,4 +16,3 @@ class PokemonAbilities(BaseModel):
     total_abilities: int
     abilities: list[str]
 
-

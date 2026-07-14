@@ -1,5 +1,6 @@
 // All calls to your FastAPI backend live here.
-const API = "http://localhost:8000";
+// Uses the deployed backend if NEXT_PUBLIC_API_URL is set, else local dev.
+const API = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 // Get the list of every pokemon name -> hits GET /pokemon
 export async function getPokemonList() {

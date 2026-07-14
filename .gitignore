@@ -7,6 +7,8 @@ __pycache__/
 
 # Node / Next.js
 node_modules/
+.env.local
+.env*.local
 frontend/.next/
 frontend/out/
 npm-debug.log*

@@ -8,7 +8,7 @@ export default async function HomePage() {
     <div>
       <p>Click a pokemon to see its details:</p>
       <ul>
-        {names.slice(0, 30).map((name) => (
+        {names.slice(0, 40).map((name) => (
           <li key={name}>
             {/* Each links to /pokemon/<name>, handled by the [name] page */}
             <a href={`/pokemon/${name}`}>{name}</a>
