@@ -1,20 +1,15 @@
 import { getPokemonList } from "./lib";
+import PokemonSearch from "./components/PokemonSearch";
 
-// A Server Component: it can be async and fetch data directly.
+// SERVER component: fetches data on the server (fast, no loading spinner)...
 export default async function HomePage() {
   const names = await getPokemonList();
 
+  // ...then passes it to a CLIENT component that adds interactivity.
   return (
     <div>
-      <p>Click a pokemon to see its details:</p>
-      <ul>
-        {names.slice(0, 40).map((name) => (
-          <li key={name}>
-            {/* Each links to /pokemon/<name>, handled by the [name] page */}
-            <a href={`/pokemon/${name}`}>{name}</a>
-          </li>
-        ))}
-      </ul>
+      <p>Search and click a pokemon:</p>
+      <PokemonSearch names={names} />
     </div>
   );
 }

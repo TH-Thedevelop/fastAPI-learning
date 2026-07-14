@@ -2,7 +2,8 @@ import { getPokemon } from "../../lib";
 
 // `params.name` comes from the [name] folder in the path.
 export default async function PokemonPage({ params }) {
-  const poke = await getPokemon(params.name);
+  const { name } = await params; // Next.js 15: params is async, await it first
+  const poke = await getPokemon(name);
 
   return (
     <div>
